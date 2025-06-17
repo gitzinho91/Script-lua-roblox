@@ -1,84 +1,73 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>s1lvax Sync</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>s1lvax Scripts</title>
+  <style>
+    body {
+      background-color: #000;
+      color: #00f0ff;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 20px;
+    }
+
+    h1 {
+      color: #00f0ff;
+    }
+
+    textarea {
+      width: 80%;
+      height: 300px;
+      background: #111;
+      color: #0ff;
+      border: 2px solid #00f0ff;
+      border-radius: 8px;
+      padding: 10px;
+      margin-bottom: 20px;
+    }
+
+    .button {
+      background-color: #00f0ff;
+      color: black;
+      border: none;
+      padding: 10px 20px;
+      font-size: 16px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .button:hover {
+      background-color: #00ddee;
+    }
+
+    footer {
+      margin-top: 40px;
+      font-size: 14px;
+      color: #555;
+    }
+  </style>
 </head>
 <body>
-  <header>
-    <h1>s1lvax Sync</h1>
-    <nav>
-      <a class="btn" href="https://github.com/SeuUsuario">GitHub</a>
-      <a class="btn" href="https://discord.com/">Discord</a>
-      <a class="btn" href="#load">LoadScript</a>
-    </nav>
-  </header>
+  <h1>Bem-vindo ao s1lvax Scripts</h1>
+  <p>Cole seu script aqui:</p>
+  <textarea placeholder="Cole aqui seu código Lua/script de exploit..."></textarea>
+  <br>
+  <button class="button">Copiar Script</button>
 
-  <main>
-    <section id="load">
-      <h2>Gerar Loadstring</h2>
-      <label for="scriptUrl">URL do seu script:</label>
-      <input type="text" id="scriptUrl" placeholder="cole a URL aqui">
-      <button class="btn neon" onclick="gerar()">Gerar</button>
-      <pre id="output"></pre>
-    </section>
-  </main>
+  <footer>
+    <p>© 2025 s1lvax - Todos os direitos reservados.</p>
+  </footer>
 
-  <script src="script-container.js"></script>
+  <script>
+    document.querySelector('.button').addEventListener('click', function () {
+      const scriptText = document.querySelector('textarea');
+      scriptText.select();
+      document.execCommand('copy');
+      alert('Script copiado!');
+    });
+  </script>
 </body>
 </html>
-body {
-  background-color: #000;
-  color: #fff;
-  font-family: Arial, sans-serif;
-  text-align: center;
-}
-
-header nav {
-  margin: 20px;
-}
-
-.btn {
-  margin: 0 10px;
-  padding: 10px 20px;
-  color: #fff;
-  background-color: #0033cc;
-  border: none;
-  cursor: pointer;
-  text-decoration: none;
-  border-radius: 4px;
-}
-
-.btn.neon {
-  background-color: #00f;
-  box-shadow: 0 0 10px #00f, 0 0 20px #00f;
-}
-
-input {
-  width: 60%;
-  padding: 10px;
-  margin: 10px 0;
-  border-radius: 4px;
-  border: 1px solid #333;
-}
-
-pre {
-  background: #111;
-  padding: 15px;
-  width: 80%;
-  margin: 20px auto;
-  overflow-x: auto;
-  border-radius: 4px;
-  color: #0f0;
-}
-function gerar() {
-  const url = document.getElementById('scriptUrl').value.trim();
-  if (!url) {
-    alert('Por favor insira uma URL.');
-    return;
-  }
-  // aqui você cola o script depois...
-  document.getElementById('output').textContent = `-- loadstring gerado para:\n-- ${url}\n\n-- cole o script aqui`;
-}
